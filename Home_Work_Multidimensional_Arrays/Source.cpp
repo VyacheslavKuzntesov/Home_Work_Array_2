@@ -24,14 +24,18 @@ void main()
 	int povtorpred = 0;
 	int povtoreniya = 1;
 	char nomer_programmu;
-	int umnoshenie = 0;
+	double umnoshenie = 0;
 	int koliter = n * m;
 	int m1, n1, m2, n2;
 	int opredekitel = 0;
+	int min;
+	int max;
+	int summa;
+	int sredaref;
 
 	do
 	{
-		cout << "Введите номер программы" << endl << "1 - Массив из 30 элементов заполнить УНИКАЛЬНЫМИ случайными числами (Диапозон в 30 чисел не меньше)" << endl << "2 - Сортировка массива" << endl << "3 - Нахождение повторяющихся значений в массиве" << endl << "4 - Сложение и вычитание массива" << endl << "5 - Умножение массива" << endl << "6 - Определитель массива 3х3" << endl << "Escape - для выхода" << endl << "Введите номер программы : "; nomer_programmu = _getch();
+		cout << "Введите номер программы" << endl << "1 - Массив из 30 элементов заполнить УНИКАЛЬНЫМИ случайными числами (Диапозон в 30 чисел не меньше)" << endl << "2 - Сортировка массива" << endl << "3 - Нахождение повторяющихся значений в массиве" << endl << "4 - Сложение и вычитание массива" << endl << "5 - Умножение массива" << endl << "6 - Определитель массива 3х3" << endl << "7 - Минимальное, Максимальное, Сумма, Среднее арифметическое" << endl << "Escape - для выхода" << endl << "Введите номер программы : "; nomer_programmu = _getch();
 		if (nomer_programmu != 27)
 		{
 			cout << nomer_programmu << endl << endl;
@@ -432,6 +436,48 @@ void main()
 				umnoshenie = 1;
 			}
 			cout << opredekitel<<endl;
+			break;
+		case '7':
+			min=0;
+			max=0;
+			summa = 0;
+			sredaref = 0;
+			cout << "Введите минимальное случайное число: "; cin >> minRand;
+			cout << "Введите максимальное случайное число: "; cin >> maxRand;
+			for (int i = 0; i < m; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					arr[i][j] = rand() % (maxRand - minRand) + minRand;
+				}
+			}
+			for (int i = 0; i < m; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					cout << arr[i][j] << tab;
+				}
+				cout << endl;
+			}
+			cout << endl;
+			min = arr[0][0];
+			max = arr[0][0];
+			for (int i = 0; i < m; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					if (min > arr[i][j])
+					{
+						min = arr[i][j];
+					}
+					if (max < arr[i][j])
+					{
+						max = arr[i][j];
+					}
+					summa += arr[i][j];
+				}
+			}
+			cout << "Минимальное = " << min << " Максимальное = " << max << " Сумма = " << summa << " Среднее арифметическое = " << summa / (m * n) << endl << endl;
 			break;
 		default:
 			if (nomer_programmu != '1' && nomer_programmu != '2' && nomer_programmu != '3' && nomer_programmu != '4' && nomer_programmu != '5' && nomer_programmu != '6' && nomer_programmu != Escape)
