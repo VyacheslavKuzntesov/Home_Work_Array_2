@@ -12,7 +12,7 @@ using std::endl;
 void main()
 {
 	setlocale(LC_ALL, "Rus");
-	const int n = 5;
+	const int n = 10;
 	const int m = 5;
 	int arr[m][n];
 	int arr1[m][n];
@@ -35,7 +35,7 @@ void main()
 
 	do
 	{
-		cout << "Введите номер программы" << endl << "1 - Массив из "<< n*m <<" элементов заполнить УНИКАЛЬНЫМИ случайными числами (Диапозон в "<< n*m <<" чисел не меньше)" << endl << "2 - Сортировка массива" << endl << "3 - Нахождение повторяющихся значений в массиве" << endl << "4 - Сложение и вычитание массива" << endl << "5 - Умножение массива" << endl << "6 - Определитель массива 3х3" << endl << "7 - Минимальное, Максимальное, Сумма, Среднее арифметическое" << endl << "Escape - для выхода" << endl << "Введите номер программы : "; nomer_programmu = _getch();
+		cout << "Введите номер программы" << endl << "1 - Массив из "<< n*m <<" элементов заполнить УНИКАЛЬНЫМИ случайными числами (Диапозон в "<< n*m <<" чисел не меньше)" << endl << "2 - Сортировка массива" << endl << "3 - Нахождение повторяющихся значений в массиве" << endl << "4 - Сложение и вычитание массива" << endl << "5 - Умножение массива" << endl << "6 - Определитель массива 3х3" << endl << "7 - Минимальное, Максимальное, Сумма, Среднее арифметическое" << endl << "8 - Массив из " << n * m << " элементов заполнить УНИКАЛЬНЫМИ случайными числами как на уроке (Диапозон в " << n * m << " чисел не меньше )" << endl << "9 - Нахождение повторяющихся значений в массиве как на уроке" << endl << "Escape - для выхода" << endl << "Введите номер программы : "; nomer_programmu = _getch();
 		if (nomer_programmu != 27)
 		{
 			cout << nomer_programmu << endl << endl;
@@ -488,8 +488,95 @@ void main()
 			}
 			cout << "Минимальное = " << min << " Максимальное = " << max << " Сумма = " << summa << " Среднее арифметическое = " << (double)summa / (m * n) << endl << endl;
 			break;
+		case '8':
+			cout << "Введите минимальное случайное число: "; cin >> minRand;
+			cout << "Введите максимальное случайное число: "; cin >> maxRand;
+			arr[0][0] = rand() % (maxRand - minRand) + minRand;
+			for (int i = 0; i < m; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					arr[i][j] = rand() % (maxRand - minRand) + minRand;
+					for (int k = 0; k <= i; k++)
+					{
+						for (int l = 0; l < (k == i?j:n); l++)
+						{
+							if (arr[k][l] == arr[i][j])
+							{
+								if (j == 0)
+								{
+									i--;
+									j = n - 1;
+								}
+								else j--;
+							}
+						}
+					}
+				}
+			}
+			for (int i = 0; i < m; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					cout << arr[i][j] << tab;
+				}
+				cout << endl;
+			}
+			break;
+		case '9':
+			cout << "Введите минимальное случайное число: "; cin >> minRand;
+			cout << "Введите максимальное случайное число: "; cin >> maxRand;
+
+			for (int i = 0; i < m; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					arr[i][j] = rand() % (maxRand - minRand) + minRand;
+				}
+			}
+
+			for (int i = 0; i < m; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					cout << arr[i][j] << tab;
+				}
+				cout << endl;
+			}
+			cout << endl;
+
+			for (int i = 0; i < m; i++)
+			{
+				for (int j = 0; j < n; j++)
+				{
+					bool have_been_earlyer = false;
+					for (int k = 0; k <= i; k++)
+					{
+						for (int l = 0; l < (k == i ? j : n); l++)
+						{
+							if (arr[i][j] == arr[k][l])
+							{
+								have_been_earlyer = true;
+								break;
+							}
+						}
+					}
+					if (have_been_earlyer)continue;
+					int count = 1;
+					for (int k = i; k < m; k++)
+					{
+						for (int l = k == i ? j + 1 : 0; l < n; l++)
+						{
+							if (arr[i][j] == arr[k][l])count++;
+						}
+					}
+					if (count > 1)printf("Значение %d встречается %d раз.\n", arr[i][j], count);
+				}
+			}
+			cout << endl;
+			break;
 		default:
-			if (nomer_programmu != '1' && nomer_programmu != '2' && nomer_programmu != '3' && nomer_programmu != '4' && nomer_programmu != '5' && nomer_programmu != '6' && nomer_programmu != '7' && nomer_programmu != Escape)
+			if (nomer_programmu != '1' && nomer_programmu != '2' && nomer_programmu != '3' && nomer_programmu != '4' && nomer_programmu != '5' && nomer_programmu != '6' && nomer_programmu != '7' && nomer_programmu != '8' && nomer_programmu != '9' && nomer_programmu != Escape)
 			{
 				cout << "Нет такой программы" << endl << endl;
 			}
