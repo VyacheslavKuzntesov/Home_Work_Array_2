@@ -32,6 +32,7 @@ void main()
 	int max;
 	int summa;
 	int sredaref;
+	int step;
 
 	do
 	{
@@ -185,12 +186,22 @@ void main()
 					}
 					else
 					{
-						for (int o = 0; o < i; o++)
+						povtorpred = 0;
+						for (int o = 0; o <= i; o++)
 						{
-							for (int p = 0; p < j; p++)
+							if (o != i)
+							{
+								step = n;
+							}
+							else
+							{
+								step = j;
+							}
+							for (int p = 0; p < step; p++)
 							{
 								if (arr[i][j] == arr[o][p])
 								{
+									povtorpred++;
 									break;
 								}
 							}
@@ -211,7 +222,7 @@ void main()
 						}
 					}
 
-					if (povtoreniya > 1)
+					if (povtoreniya > 0)
 					{
 						cout << arr[i][j] << " повторяется " << povtoreniya << endl << endl;
 						povtoreniya = 1;
