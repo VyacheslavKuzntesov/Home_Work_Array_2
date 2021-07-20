@@ -27,11 +27,10 @@ void main()
 	double umnoshenie = 0;
 	int koliter = n * m;
 	int m1, n1, m2, n2;
-	int opredekitel = 0;
+	double opredekitel = 0;
 	int min;
 	int max;
 	int summa;
-	int sredaref;
 	int step;
 
 	do
