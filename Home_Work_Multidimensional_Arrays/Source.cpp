@@ -46,7 +46,8 @@ void main()
 		}
 		switch (nomer_programmu)
 		{
-		case '1':	
+		case '1':
+		{
 			cout << "Введите минимальное случайное число: "; cin >> minRand;
 			cout << "Введите максимальное случайное число: "; cin >> maxRand;
 
@@ -76,7 +77,7 @@ void main()
 								if (arr[i][j] == arr[k][l] && j == 0)
 								{
 									i--;
-									j = n-1;
+									j = n - 1;
 									break;
 								}
 								else if (arr[i][j] == arr[k][l])
@@ -101,7 +102,9 @@ void main()
 			}
 			cout << endl;
 			break;
+		}
 		case '2':
+		{
 			cout << "Введите минимальное случайное число: "; cin >> minRand;
 			cout << "Введите максимальное случайное число: "; cin >> maxRand;
 
@@ -143,7 +146,9 @@ void main()
 				cout << endl;
 			}
 			break;
+		}
 		case '3':
+		{
 			cout << "Введите минимальное случайное число: "; cin >> minRand;
 			cout << "Введите максимальное случайное число: "; cin >> maxRand;
 
@@ -231,7 +236,9 @@ void main()
 				}
 			}
 			break;
+		}
 		case '4':
+		{
 			cout << "Введите минимальное случайное число: "; cin >> minRand;
 			cout << "Введите максимальное случайное число: "; cin >> maxRand;
 
@@ -310,7 +317,9 @@ void main()
 			}
 			cout << endl;
 			break;
+		}
 		case '5':
+		{
 			cout << "Введите минимальное случайное число: "; cin >> minRand;
 			cout << "Введите максимальное случайное число: "; cin >> maxRand;
 
@@ -359,7 +368,7 @@ void main()
 					n1 = 0;
 					m2 = 0;
 					n2 = j;
-					for (int k = 0; k < n; k++,m2++,n1++)
+					for (int k = 0; k < n; k++, m2++, n1++)
 					{
 						umnoshenie += arr[m1][m2] * arr1[n1][n2];
 					}
@@ -381,7 +390,9 @@ void main()
 			cout << endl;
 
 			break;
+		}
 		case '6':
+		{
 			n1 = 0;
 			n2 = 0;
 			opredekitel = 0;
@@ -433,7 +444,7 @@ void main()
 				{
 					if (n1 == -1)
 					{
-						n1 = n-1;
+						n1 = n - 1;
 					}
 					umnoshenie *= arr3[j][n1];
 					n1--;
@@ -445,11 +456,13 @@ void main()
 				cout << endl << opredekitel << endl;
 				umnoshenie = 1;
 			}
-			cout << opredekitel<<endl;
+			cout << opredekitel << endl;
 			break;
+		}
 		case '7':
-			min=0;
-			max=0;
+		{
+			min = 0;
+			max = 0;
 			summa = 0;
 			cout << "Введите минимальное случайное число: "; cin >> minRand;
 			cout << "Введите максимальное случайное число: "; cin >> maxRand;
@@ -488,7 +501,9 @@ void main()
 			}
 			cout << "Минимальное = " << min << " Максимальное = " << max << " Сумма = " << summa << " Среднее арифметическое = " << (double)summa / (m * n) << endl << endl;
 			break;
+		}
 		case '8':
+		{
 			cout << "Введите минимальное случайное число: "; cin >> minRand;
 			cout << "Введите максимальное случайное число: "; cin >> maxRand;
 			arr[0][0] = rand() % (maxRand - minRand) + minRand;
@@ -499,7 +514,7 @@ void main()
 					arr[i][j] = rand() % (maxRand - minRand) + minRand;
 					for (int k = 0; k <= i; k++)
 					{
-						for (int l = 0; l < (k == i?j:n); l++)
+						for (int l = 0; l < (k == i ? j : n); l++)
 						{
 							if (arr[k][l] == arr[i][j])
 							{
@@ -523,7 +538,9 @@ void main()
 				cout << endl;
 			}
 			break;
+		}
 		case '9':
+		{
 			cout << "Введите минимальное случайное число: "; cin >> minRand;
 			cout << "Введите максимальное случайное число: "; cin >> maxRand;
 
@@ -575,6 +592,7 @@ void main()
 			}
 			cout << endl;
 			break;
+		}
 		default:
 			if (nomer_programmu != '1' && nomer_programmu != '2' && nomer_programmu != '3' && nomer_programmu != '4' && nomer_programmu != '5' && nomer_programmu != '6' && nomer_programmu != '7' && nomer_programmu != '8' && nomer_programmu != '9' && nomer_programmu != Escape)
 			{
