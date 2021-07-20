@@ -491,7 +491,7 @@ void main()
 			cout << "Минимальное = " << min << " Максимальное = " << max << " Сумма = " << summa << " Среднее арифметическое = " << summa / (m * n) << endl << endl;
 			break;
 		default:
-			if (nomer_programmu != '1' && nomer_programmu != '2' && nomer_programmu != '3' && nomer_programmu != '4' && nomer_programmu != '5' && nomer_programmu != '6' && nomer_programmu != Escape)
+			if (nomer_programmu != '1' && nomer_programmu != '2' && nomer_programmu != '3' && nomer_programmu != '4' && nomer_programmu != '5' && nomer_programmu != '6' && nomer_programmu != '7' && nomer_programmu != Escape)
 			{
 				cout << "Нет такой программы" << endl << endl;
 			}
